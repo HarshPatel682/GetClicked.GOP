@@ -4,7 +4,7 @@ Daniel Ostrowski	ostrowsd@purdue.edu
 Harsh Patel		patel682@purdue.edu
 Andy Gao		gao353@purdue.edu
 
-Name of Project: Clicker.io
+Name of Project: GetCLicked.GOP
 
 Technologies:
 Amazon Web Services - hosting
