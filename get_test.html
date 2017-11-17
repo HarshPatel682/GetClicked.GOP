@@ -5,24 +5,23 @@
     <script>
         $(document).ready(function(){
             $("button").click(function(){
-                /*TODO: Doesn't work. CSRF cookie not set.*/
-                $.post("18.216.65.48/app/testpost/", "Instructor=asdf",
-                    function(data,status){
-                        alert("Data: " + data + "\nStatus: " + status);
-                    }
-                );
+                $.getJSON("http://httpbin.org/get", function(data, status){
+                    var items = [];
+                    $.each( data, function( key, val ) {
+                        items.push( "<li id='" + key + "'>" + val + "</li>" );
+                    });
+                    $( "<ul/>", {
+                        "class": "my-new-list",
+                        html: items.join( "" )
+                    }).appendTo( "body" );
+                });
             });
-            //checking that jquery is actually working
-            /*$("button").click(function(){
-                $("p").hide();
-            });*/
         });
     </script>
 </head>
 <body>
-<p>hide text</p>
 
-<button>Send an HTTP POST request to a page and get the result back</button>
-
+<button>Send an HTTP GET request to a page and get the result back</button>
+<div id="div1"></div>
 </body>
 </html>
