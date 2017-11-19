@@ -5,32 +5,28 @@
     <script>
         $(document).ready(function(){
             $("#btn1").click(function(){
-                /*$.getJSON("http://httpbin.org/get", function(data, status){
-                    var items = [];
-                    $.each( data, function( key, val ) {
-                        items.push( "<li id='" + key + "'>" + val + "</li>" );
-                    });
-                    $( "<ul/>", {
-                        "class": "my-new-list",
-                        html: items.join( "" )
-                    }).appendTo( "body" );
-                });*/
                 $.get("http://httpbin.org/html", function(data, status){
-                    $("#div1").html(data);
+                    $("#div1").html("Data: "+data+" "+status);
                 });
-            });$("#btn2").click(function(){
-                /*$.getJSON("http://httpbin.org/get", function(data, status){
-                    var items = [];
-                    $.each( data, function( key, val ) {
-                        items.push( "<li id='" + key + "'>" + val + "</li>" );
-                    });
-                    $( "<ul/>", {
-                        "class": "my-new-list",
-                        html: items.join( "" )
-                    }).appendTo( "body" );
-                });*/
-                $.get("http://18.216.65.48/", function(data, status){
-                    $("#div2").html(data);
+            });
+            $("#btn4").click(function () {
+                $.getJSON("http://httpbin.org/headers", function(data, status){
+                    $("#div4").html("Data: "+JSON.stringify(data)+" "+status);
+                });
+            })
+            $("#btn2").click(function(){
+                $.get("http://18.216.65.48/app", function(data, status){
+                    $("#div2").html("Data: "+data+" "+status);
+                });
+            });
+            $("#btn3").click(function(){
+                $.post("http://18.216.65.48/app/testpost/",
+                    {
+                        name: "Donald Duck",
+                        city: "Duckburg"
+                    },
+                    function(data,status){
+                        $("#div3").html("Data: "+data+" "+status);
                 });
             });
         });
@@ -38,9 +34,13 @@
 </head>
 <body>
 
-<button id="btn1">Send an HTTP GET request to httpbin</button>
+<button id="btn1">Send an HTML GET request to httpbin</button>
 <div id="div1"></div>
-<button id="btn2">Send an HTTP GET request to test</button>
+<button id="btn4">Send an HTML GETJSON request to httpbin</button>
+<div id="div4"></div>
+<button id="btn2">Send an HTML GET request to test</button>
 <div id="div2"></div>
+<button id="btn3">Send an HTML POST request to test</button>
+<div id="div3"></div>
 </body>
 </html>
