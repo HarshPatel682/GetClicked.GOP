@@ -1,0 +1,37 @@
+body {
+    margin: 0;
+
+    background: url(images/518169-backgrounds.jpg);
+    background-size: cover;
+}
+
+.navbar {
+    opacity: 0.8;
+    filter: alpha(opacity=50);
+    overflow: hidden;
+    background-color: #333;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar a {
+
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.container {
+    position: absolute;
+    top: 53%;
+    Left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    background: rgba(103, 58, 183, 0.7);
+}
