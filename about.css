@@ -2,8 +2,15 @@ html {
     box-sizing: border-box;
 }
 
+body {
+    margin: 0;
+    /*background: url(images/518169-backgrounds.jpg);*/
+    /*background-size: cover;*/
+}
+
 .header {
     text-align: center;
+
 }
 
 *, *:before, *:after {
@@ -25,7 +32,7 @@ html {
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.8);
 }
 
 .container {
