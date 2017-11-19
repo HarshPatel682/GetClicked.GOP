@@ -10,8 +10,19 @@
                 });
             });
             $("#btn4").click(function () {
-                $.getJSON("http://httpbin.org/headers", function(data, status){
-                    $("#div4").html("Data: "+JSON.stringify(data)+" "+status);
+                $.getJSON("testquestions", function(data, status){
+                    var tr;
+                    for (var i = 0; i<data.length; i++){
+                        tr = $('<tr/>');
+                        /*for(var j = 0; j<data[i].question.length; j++) {
+                            tr.append("<td>" + data[i].question[j] + "</td>");
+                        }*/
+                        for(var j in data[i]) {
+                            tr.append("<td>" + data[i][j]    + "</td>");
+                        }
+                        $("#tb1").append(tr);
+                    }
+
                 });
             })
             $("#btn2").click(function(){
@@ -37,7 +48,23 @@
 <button id="btn1">Send an HTML GET request to httpbin</button>
 <div id="div1"></div>
 <button id="btn4">Send an HTML GETJSON request to httpbin</button>
-<div id="div4"></div>
+<table id="tb1">
+    <thead>
+    <tr>
+        <th>question</th>
+        <th>a</th>
+        <th>b</th>
+        <th>c</th>
+        <th>d</th>
+        <th>e</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>example</td><td>blah</td><td>blah</td><td>blah</td><td>blah</td><td>blah</td>
+    </tr>
+    </tbody>
+</table>
 <button id="btn2">Send an HTML GET request to test</button>
 <div id="div2"></div>
 <button id="btn3">Send an HTML POST request to test</button>
