@@ -6,10 +6,8 @@ body {
 }
 
 .navbar {
-    opacity: 0.8;
-    filter: alpha(opacity=50);
     overflow: hidden;
-    background-color: #333;
+    background: rgba(10, 10, 10, 0.9);
     position: fixed;
     top: 0;
     width: 100%;
@@ -33,5 +31,5 @@ body {
     transform: translate(-50%, -50%);
     width: 90%;
     height: 90%;
-    background: rgba(10, 10, 10, 1);
+    background: rgba(10, 10, 10, 0.9);
 }
