@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).validate(function(){
+
+        });
+    </script>
+</head>
+<body>
+    <form id="signupform" enctype="application/json" action="http://18.216.65.48/app/createuser/" method="post">
+        Username: <input type="text" name="username"><br>
+        Password: <input type="text" name="password"><br>
+        <input type="submit" value="Sign Up!">
+    </form>
+</body>
+</html>
