@@ -3,11 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Create a class</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#joinclassform").submit(function(event) {
+                var formData = {
+                    "class" : $('input[name=class]').val(),
+                };
+                //TODO fix urls
+                $.ajax({
+                    type : 'POST',
+                    url : "",
+                    data : formData,
+                    dataType: 'json'
+                })
+
+                    .done(function (data) {
+                        //on failure will display error message
+                        if(data.success===false)
+                            alert("Error: "+data.comment);
+                        else
+                        //TODO on success will reedirect to class page
+                            alert("class joined");
+                    })
+                event.preventDefault();
+            });
+        });
+    </script>
 </head>
 <body>
 
 <form method="post" action="">
-    Class Name: <input type="text" name="classname" placeholder="Class Name"><br>
+    Class Name: <input type="text" name="class" placeholder="Class Name"><br>
     <input type="submit" value="Create Class">
 </form>
 

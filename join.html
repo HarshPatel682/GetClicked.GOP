@@ -3,12 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Join a class</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#joinclassform").submit(function(event) {
+                var formData = {
+                    "class" : $('input[name=class]').val(),
+                    //and username?
+                };
+                //TODO fix urls
+                $.ajax({
+                    type : 'POST',
+                    url : "",
+                    data : formData,
+                    dataType: 'json'
+                })
+
+                    .done(function (data) {
+                        //on failure will display error message
+                        if(data.success===false)
+                            alert("Error: "+data.comment);
+                        else
+                        //TODO on success will reedirect to class page
+                            alert("class joined");
+                    })
+                event.preventDefault();
+            });
+        });
+    </script>
 </head>
 <body>
 
 
-<form method="post">
-    Class Name: <input type="text" name="FirstName" value="" placeholder="Class Name"><br>
+<form id="joinclassform">
+    Class Name: <input type="text" name="class" value="" placeholder="Class Name"><br>
     <input type="submit" value="Join Class!">
 </form>
 
