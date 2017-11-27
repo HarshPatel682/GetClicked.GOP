@@ -22,6 +22,7 @@ class StudentSection(models.Model):
 
 # Only multiple choice questions for now
 class Question(models.Model):
+    section = models.ForeignKey(Section, default=None)
     label = models.CharField(max_length=LONG_STRING_LENGTH, null=True)
 
 # A MCAnswer has a question, a label, and an indication of whether it is correct or not
