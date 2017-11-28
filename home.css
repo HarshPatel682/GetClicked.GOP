@@ -33,3 +33,51 @@ body {
     height: 90%;
     background: rgba(10, 10, 10, 0.9);
 }
+
+.container .nav2 .leftDiv {
+    text-align: center;
+    font-size: 20px;
+    float: left;
+    width: 50%;
+    background: rgba(100, 100, 100, 0.9);
+}
+
+.container .nav2 .rightDiv {
+    text-align: center;
+    font-size: 20px;
+    float: left;
+    width: 50%;
+    background: rgba(300, 300, 300, 0.9);
+}
+
+.container .nav2 .leftDiv a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    background: #673ab7;
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container .nav2 .leftDiv a:hover {
+    background: #ff0057;
+    border: 5px solid #000000;
+
+}
+
+.container .nav2 .rightDiv a {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    background: #673ab7;
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container .nav2 .rightDiv a:hover {
+    background: #ff0057;
+    border: 5px solid #000000;
+
+}
