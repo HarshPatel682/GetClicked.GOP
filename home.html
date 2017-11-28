@@ -10,10 +10,17 @@
             $("#classes_in").empty();
             $("#classes_instr_of").empty();
 
-            $.get("http://18.216.65.48/app/sectionsasinstructor/", function(data, status){
+            $.getJSON("http://18.216.65.48/app/enrollinsection/", function(data, status){
                 var tr;
                 for (var i = 0; i<data.sections.length; i++) {
-                    tr = $("<ul><a href='" + data.sections[i] + "'>" + data.sections[i] + "</a></ul>>");
+                    tr = $("<ul><a href='" + data.sections[i] + "'>" + data.sections[i] + "</a></ul>");
+                    $("#classes_in").append(tr);
+                }
+            });
+            $.getJSON("http://18.216.65.48/app/sectionsasinstructor/", function(data, status){
+                var tr;
+                for (var i = 0; i<data.sections.length; i++) {
+                    tr = $("<ul><a href='" + data.sections[i] + "'>" + data.sections[i] + "</a></ul>");
                     $("#classes_instr_of").append(tr);
                 }
             });
