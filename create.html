@@ -6,14 +6,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
-            $("#joinclassform").submit(function(event) {
+            $("#createclassform").submit(function(event) {
                 var formData = {
-                    "class" : $('input[name=class]').val(),
+                    "name" : $('input[name=class]').val(),
                 };
                 //TODO fix urls
                 $.ajax({
                     type : 'POST',
-                    url : "",
+                    url : "http://18.216.65.48/app/createsection/",
                     data : formData,
                     dataType: 'json'
                 })
@@ -22,9 +22,10 @@
                         //on failure will display error message
                         if(data.success===false)
                             alert("Error: "+data.comment);
-                        else
-                        //TODO on success will reedirect to class page
-                            alert("class joined");
+                        else {
+                            alert("class created")
+                            window.location = "http://18.216.65.48/app/home.html";
+                        }
                     })
                 event.preventDefault();
             });
@@ -33,7 +34,7 @@
 </head>
 <body>
 
-<form method="post" action="">
+<form id="createclassform">
     Class Name: <input type="text" name="class" placeholder="Class Name"><br>
     <input type="submit" value="Create Class">
 </form>

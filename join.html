@@ -8,24 +8,25 @@
         $(document).ready(function(){
             $("#joinclassform").submit(function(event) {
                 var formData = {
-                    "class" : $('input[name=class]').val(),
+                    "section" : $('input[name=class]').val(),
                     //and username?
                 };
                 //TODO fix urls
                 $.ajax({
                     type : 'POST',
-                    url : "",
+                    url : "http://18.216.65.48/app/enrollinsection/",
                     data : formData,
-                    dataType: 'json'
+                    dataType: 'json',
+                    crossDomain: true
                 })
-
                     .done(function (data) {
                         //on failure will display error message
                         if(data.success===false)
                             alert("Error: "+data.comment);
-                        else
-                        //TODO on success will reedirect to class page
-                            alert("class joined");
+                    else {
+                            //TODO on success will reedirect to class page
+                            window.location = "http://18.216.65.48/app/home.html";
+                        }
                     })
                 event.preventDefault();
             });
