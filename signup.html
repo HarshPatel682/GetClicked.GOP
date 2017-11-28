@@ -2,31 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Join a class</title>
+    <title>Sign Up</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
-            $("#joinclassform").submit(function(event) {
+            $("#signupform").submit(function(event) {
                 var formData = {
-                    "section" : $('input[name=class]').val(),
-                    //and username?
+                    "username" : $('input[name=username]').val(),
+                    "password" : $('input[name=password]').val(),
                 };
                 //TODO fix urls
                 $.ajax({
                     type : 'POST',
-                    url : "http://18.216.65.48/app/enrollinsection/",
+                    url : "http://18.216.65.48/app/createuser/",
                     data : formData,
-                    dataType: 'json',
-                    crossDomain: true
+                    dataType: 'json'
                 })
+
                     .done(function (data) {
                         //on failure will display error message
                         if(data.success===false)
                             alert("Error: "+data.comment);
-                    else {
-                            //TODO on success will reedirect to class page
-                            window.location = "http://18.216.65.48/app/home.html";
-                        }
+                        else
+                        //on failure will display error message
+                            window.location.replace("home.html");
                     })
                 event.preventDefault();
             });
@@ -34,12 +33,10 @@
     </script>
 </head>
 <body>
-
-
-<form id="joinclassform">
-    Class Name: <input type="text" name="class" value="" placeholder="Class Name"><br>
-    <input type="submit" value="Join Class!">
-</form>
-
+    <form id="signupform">
+        Username: <input type="text" name="username"><br>
+        Password: <input type="password" name="password"><br>
+        <input type="submit" value="Sign Up!">
+    </form>
 </body>
 </html>

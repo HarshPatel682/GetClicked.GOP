@@ -10,8 +10,29 @@
                 });
             });
             $("#btn4").click(function () {
-                $.getJSON("http://httpbin.org/headers", function(data, status){
-                    $("#div4").html("Data: "+JSON.stringify(data)+" "+status);
+                $.getJSON("testquestions", function(data, status){
+                    var tr;
+                    for (var i = 0; i<data.length; i++){
+                        tr = $('<tr>');
+                        /*for(var j = 0; j<data[i].question.length; j++) {
+                            tr.append("<td>" + data[i].question[j] + "</td>");
+                        }*/
+                        for(var j = 0; j<data[i].length; j++) {
+                            if (j == 0) { //print question
+                                tr.append("<td>" + data[i][j] + "</td>");
+                            } else { //else print answers
+                                tr.append(
+                                    "<td>"+
+                                        "<input type=\"radio\" name=\""+data[i][0]+"\" value=\""+data[i][j]+"\">"+
+                                        data[i][j]+
+                                    "</td>");
+                                console.log(data[i][0]);
+                            }
+                        }
+                        tr.append('</tr>');
+                        $("#tb1").append(tr);
+                    }
+
                 });
             })
             $("#btn2").click(function(){
@@ -37,7 +58,21 @@
 <button id="btn1">Send an HTML GET request to httpbin</button>
 <div id="div1"></div>
 <button id="btn4">Send an HTML GETJSON request to httpbin</button>
-<div id="div4"></div>
+<form method="get" action="">
+    <table id="tb1">
+        <thead>
+        <tr>
+            <th>question</th>
+            <th>a</th>
+            <th>b</th>
+            <th>c</th>
+            <th>d</th>
+            <th>e</th>
+        </tr>
+        </thead>
+    </table>
+    <button type="submit">Post</button>
+</form>
 <button id="btn2">Send an HTML GET request to test</button>
 <div id="div2"></div>
 <button id="btn3">Send an HTML POST request to test</button>
