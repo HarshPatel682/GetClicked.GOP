@@ -50,7 +50,7 @@ body {
     background: rgba(300, 300, 300, 0.9);
 }
 
-.container .nav2 .leftDiv a {
+.container .nav2 .leftDiv .join{
     display: inline-block;
     padding: 10px 20px;
     color: #ffffff;
@@ -60,13 +60,12 @@ body {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.container .nav2 .leftDiv a:hover {
+.container .nav2 .leftDiv .join:hover {
     background: #ff0057;
-    border: 5px solid #000000;
-
+    border: 2px solid #000000;
 }
 
-.container .nav2 .rightDiv a {
+.container .nav2 .rightDiv .create {
     display: inline-block;
     padding: 10px 20px;
     color: #ffffff;
@@ -76,8 +75,7 @@ body {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
-.container .nav2 .rightDiv a:hover {
+.container .nav2 .rightDiv .create:hover {
     background: #ff0057;
-    border: 5px solid #000000;
-
+    border: 2px solid #000000;
 }
