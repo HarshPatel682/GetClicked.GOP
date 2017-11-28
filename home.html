@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <title>Home Page</title>
     <link rel="stylesheet" href="home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#classes_in").empty();
+            $("#classes_instr_of").empty();
+
+            $.get("http://18.216.65.48/app/sectionsasinstructor/", function(data, status){
+                var tr;
+                for (var i = 0; i<data.sections.length; i++) {
+                    tr = $("<ul><a href='" + data.sections[i] + "'>" + data.sections[i] + "</a></ul>>");
+                    $("#classes_instr_of").append(tr);
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -21,11 +36,13 @@
 
             <div class="leftDiv">
                 <a href="join.html">Join a class</a>
-
+                <ul id="classes_in">
+                </ul>
             </div>
             <div class="rightDiv">
                 <a href="create.html">Create a class</a>
-
+                <ul id="classes_instr_of">
+                </ul>
             </div>
 
         </div>

@@ -11,6 +11,7 @@
             });
             $("#btn4").click(function () {
                 $.getJSON("testquestions", function(data, status){
+                    $("tbody").empty();
                     var tr;
                     for (var i = 0; i<data.length; i++){
                         tr = $('<tr>');
@@ -30,7 +31,7 @@
                             }
                         }
                         tr.append('</tr>');
-                        $("#tb1").append(tr);
+                        $("tbody").append(tr);
                     }
 
                 });
@@ -70,6 +71,9 @@
             <th>e</th>
         </tr>
         </thead>
+        <tbody>
+
+        </tbody>
     </table>
     <button type="submit">Post</button>
 </form>
