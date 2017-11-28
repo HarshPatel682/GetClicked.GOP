@@ -8,7 +8,7 @@
         $(document).ready(function(){
             $("#createclassform").submit(function(event) {
                 var formData = {
-                    "name" : $('input[name=class]').val(),
+                    "name" : $('input[name=class]').val()
                 };
                 //TODO fix urls
                 $.ajax({
@@ -24,7 +24,7 @@
                             alert("Error: "+data.comment);
                         else {
                             alert("class created")
-                            window.location = "http://18.216.65.48/app/home.html";
+                            window.location.href = "http://18.216.65.48/home.html";
                         }
                     })
                 event.preventDefault();
