@@ -10,7 +10,7 @@
             $("#classes_in").empty();
             $("#classes_instr_of").empty();
 
-            $.getJSON("http://18.216.65.48/app/enrollinsection/", function(data, status){
+            $.getJSON("http://18.216.65.48/app/sectionsasstudent/", function(data, status){
                 var tr;
                 for (var i = 0; i<data.sections.length; i++) {
                     tr = $("<ul><a href='" + data.sections[i] + "'>" + data.sections[i] + "</a></ul>");
@@ -42,12 +42,12 @@
         <div class="nav2">
 
             <div class="leftDiv">
-                <a class="join" href="join.html">Join a class</a>
+                <a href="join.html" class="join">Join a class</a>
                 <ul id="classes_in">
                 </ul>
             </div>
             <div class="rightDiv">
-                <a class="create" href="create.html">Create a class</a>
+                <a href="create.html" class="create">Create a class</a>
                 <ul id="classes_instr_of">
                 </ul>
             </div>
