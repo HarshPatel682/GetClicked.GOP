@@ -16,23 +16,37 @@
             $.getJSON("http://18.216.65.48/app/sectionsasstudent/", function(data, status){
                 var tr;
                 for (var i = 0; i<data.sections.length; i++) {
-                    tr = $("<ul><a href='" + data.sections[i] + "'>" + data.sections[i] + "</a></ul>");
+                    tr = $("<li><a href=answerquestion.html>" + data.sections[i] + "</a></li>");
                     $("#classes_in").append(tr);
                 }
+                //test
+                $("#classes_in").append("<li><a href=answerquestion.html>asdfsadf</a></li>");
             });
             $.getJSON("http://18.216.65.48/app/sectionsasinstructor/", function(data, status){
                 var tr;
                 for (var i = 0; i<data.sections.length; i++) {
-                    tr = $("<ul><a href='" + data.sections[i] + "'>" + data.sections[i] + "</a></ul>");
+                    tr = $("<li><a href=createquestion.html>" + data.sections[i] + "</a></li>");
                     $("#classes_instr_of").append(tr);
                 }
+                //test
+                $("#classes_instr_of").append("<li><a href=answerquestion.html>tescreate</a></li>");
             });
 
             $('#logoutbtn').click(function () {
                 $.get("http://18.216.65.48/app/logoutuser", function(data, status){
                     alert("logout"+status);
+                    window.location.replace("http://18.216.65.48/")
                 });
             })
+
+            $("#classes_in").click(function (event) {
+                Cookies.set('class',event.target.innerHTML);
+                //alert(Cookies.get('class'))
+            });
+            $("#classes_instr_of").click(function (event) {
+                Cookies.set('class',event.target.innerHTML);
+                //alert(Cookies.get('class'))
+            });
         });
     </script>
 </head>
@@ -50,13 +64,13 @@
 
             <div class="leftDiv">
                 <a href="join.html" class="join">Join a class</a>
-                <ul id="classes_in">
-                </ul>
+                <ol id="classes_in">
+                </ol>
             </div>
             <div class="rightDiv">
                 <a href="create.html" class="create">Create a class</a>
-                <ul id="classes_instr_of">
-                </ul>
+                <ol id="classes_instr_of">
+                </ol>
             </div>
 
         </div>
