@@ -326,7 +326,7 @@ def getgradeinfo(request):
         result["success"] = False
         result["comment"] = "There is no section with that name."
         return HttpResponse(json.dumps(result))
-    section = Section.objects.filter(name=section_name)
+    section = Section.objects.get(name=section_name)
     if section.instructor != request.user:
         result["success"] = False
         result["comment"] = "The user is not the section's instructor."
