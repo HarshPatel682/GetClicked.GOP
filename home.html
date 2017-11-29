@@ -27,6 +27,12 @@
                     $("#classes_instr_of").append(tr);
                 }
             });
+
+            $('#logoutbtn').click(function () {
+                $.get("http://18.216.65.48/app/logoutuser", function(data, status){
+                    alert("logout"+status);
+                });
+            })
         });
     </script>
 </head>
@@ -35,9 +41,7 @@
 <div class="navbar">
     <a href="home.html" id="UsersName">Insert Username Here</a>
     <!--logout btn temp-->
-    <btn id="logoutbtn">
-        <a href="http://18.216.65.48/app/logoutuser/">logout</a>
-    </btn>
+    <btn id="logoutbtn" class="btn">logout</btn>
 </div>
 
 <section>
