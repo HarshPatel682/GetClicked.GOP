@@ -339,7 +339,7 @@ def getgradeinfo(request):
     # student name,question label,chosen answer,is answer correct?
     csv = ""
     for student in students:
-        for question in question:
+        for question in questions:
             try:
                 response = MCResponse.objects.get(student=student, question=question).response
                 answer = response.label
