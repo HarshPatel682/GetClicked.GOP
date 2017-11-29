@@ -5,6 +5,8 @@
 	<title>GetClicked Index</title>
 	<link rel="stylesheet" href="index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+
     <script>
         $(document).ready(function(){
             $("#loginform").submit(function(event) {
@@ -12,6 +14,7 @@
                     "username" : $('input[name=username]').val(),
                     "password" : $('input[name=password]').val()
                 };
+                Cookies.set('username', $('input[name=username]').val());
                 //TODO fix urls
                 $.ajax({
                     type : 'POST',

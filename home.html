@@ -5,8 +5,11 @@
     <title>Home Page</title>
     <link rel="stylesheet" href="home.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script>
         $(document).ready(function(){
+            $('#UsersName').innerText(Cookies.get('name'));
+
             $("#classes_in").empty();
             $("#classes_instr_of").empty();
 
