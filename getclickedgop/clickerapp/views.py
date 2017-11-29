@@ -347,7 +347,7 @@ def getgradeinfo(request):
             except:
                 answer = ""
                 is_correct = False
-            csv += student.username + "," + question.label + "," + answer + "," + is_correct + "\n"
+            csv += student.username + "," + question.label + "," + answer + "," + str(is_correct) + "\n"
     result["success"] = True
     result["comment"] = "Successfully generated csv."
     result["csv"] = csv
