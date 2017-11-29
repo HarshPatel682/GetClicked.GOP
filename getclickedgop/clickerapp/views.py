@@ -333,7 +333,7 @@ def getgradeinfo(request):
         return HttpResponse(json.dumps(result))
     students = [student_section.student for student_section in StudentSection.objects.filter(section=section)]
     questions = [question for question in Question.objects.filter(section=section)]
-    students.sort(key=lambda student: student.name)
+    students.sort(key=lambda student: student.username)
     questions.sort(key=lambda question: question.label)
     # Format:
     # student name,question label,chosen answer,is answer correct?
