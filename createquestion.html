@@ -21,7 +21,7 @@
                     'label' : $('input[name=question]').val(),
                     'responses' : answers
                 };
-
+                console.log(JSON.stringify(formData));
                 $.ajax({
                     type : 'POST',
                     url : "http://18.216.65.48/app/createquestion",
