@@ -52,6 +52,9 @@
                 });
             });
         });
+        function submitans(qid, label){
+            alert(qid + ' ' + label);
+        }
     </script>
 </head>
 <body>
@@ -81,5 +84,12 @@
 <div id="div2"></div>
 <button id="btn3">Send an HTML POST request to test</button>
 <div id="div3"></div>
+<form onsubmit="submitans(qid, $('input[name=qid]:checked').val());">
+    <input type="radio" name="qid" value="a">a
+    <input type="radio" name="qid" value="b">b
+    <input type="radio" name="qid" value="c">c
+    <input type="submit" value="Submit">
+</form>
+
 </body>
 </html>

@@ -24,9 +24,8 @@
                         alert("Error: "+data.comment);
                     else{
                         var qids = data.questions;
-                        console.log(qids);
                         for(var i = 0; i < qids.length; i++){
-                            console.log(qids[i][0]);
+                            //console.log(qids[i][0]);
                             var id = {
                                 "questionid": qids[i][0]
                             };
@@ -37,11 +36,38 @@
                                 dataType: 'json'
                             }).done(function (data2) {
                                 var answers = data2.answers;
-                                console.log(answers);
+                                console.log(qids[i][0]+' '+answers);
+
+                                // displaying the question on the page
+                                var qform ="<form onsubmit=\"submitans("+qid[i][0]+", $('input[name="+qid[i][0]+"]:checked').val());\">"
+                                for(var j = 0; j < answers.length; j++){
+                                    qform.append("<input type=\"radio\" name=\""+qid[i][0]+"\" value=\""+answers[j]+"\">"+answers[j]);
+                                }
+                                qform.append("<input type=\"submit\" value=\"Submit\">\n" +
+                                    "</form>");
+
+                                $('#questions').appendChild(qform);
                             });
                         }
                     }
                 });
+
+                // submitting question answers
+                function submitans(questionid, label){
+                    var answer_to_submit = {
+                        "questionid":questionid,
+                        "label":label
+                    };
+                    $.ajax({
+                        type : 'POST',
+                        url : "http://18.216.65.48/app/answerquestion/",
+                        data : answer_to_submit,
+                        dataType: 'json'
+                    }).done(function (data3) {
+                        if(data3.success===false)
+                            alert("Error: "+data3.comment);
+                    });
+                }
         });
     </script>
 </head>
