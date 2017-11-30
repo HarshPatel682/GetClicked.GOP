@@ -26,14 +26,14 @@
                         var qids = data.questions;
                         console.log(qids);
                         for(var i = 0; i < qids.length; i++){
-                            console.log(qids[i][0]);
+                            console.log(qids[i][0].value);
                             var id = {
-                                "questionid": qids[i][0]
+                                "questionid": qids[i][0].val()
                             };
                             $.ajax({
                                 type : 'POST',
                                 url : "http://18.216.65.48/app/getquestiondetail/",
-                                data : formData,
+                                data : id,
                                 dataType: 'json'
                             }).done(function (data2) {
                                 var answers = data2.answers;
