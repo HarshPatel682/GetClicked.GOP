@@ -42,34 +42,33 @@
                                 var qform =$("<form onsubmit=\"submitans("+data2.questionid+", $('input[name="+data2.questionid+"]:checked').val());\">");
                                 qform.append(data2.label+"<br>");
                                 for(var j = 0; j < answers.length; j++){
-                                    qform.append("<input type=\"radio\" name=\""+data2.questionid+"\" value=\""+answers[j]+"\">"+answers[j]);
+                                    qform.append("<br><input type=\"radio\" name=\""+data2.questionid+"\" value=\""+answers[j]+"\">"+answers[j]);
                                 }
                                 qform.append("<br><input type=\"submit\" value=\"Submit\">\n" +
-                                    "</form>");
+                                    "</form><br>");
 
                                 $('#questions').append(qform);
                             });
                         }
                     }
                 });
-
-                // submitting question answers
-                function submitans(questionid, label){
-                    var answer_to_submit = {
-                        "questionid":questionid,
-                        "label":label
-                    };
-                    $.ajax({
-                        type : 'POST',
-                        url : "http://18.216.65.48/app/answerquestion/",
-                        data : answer_to_submit,
-                        dataType: 'json'
-                    }).done(function (data3) {
-                        if(data3.success===false)
-                            alert("Error: "+data3.comment);
-                    });
-                }
         });
+        // submitting question answers
+        function submitans(questionid, label){
+            var answer_to_submit = {
+                "questionid":questionid,
+                "label":label
+            };
+            $.ajax({
+                type : 'POST',
+                url : "http://18.216.65.48/app/answerquestion/",
+                data : answer_to_submit,
+                dataType: 'json'
+            }).done(function (data3) {
+                if(data3.success===false)
+                    alert("Error: "+data3.comment);
+            });
+        }
     </script>
 </head>
 <body>
