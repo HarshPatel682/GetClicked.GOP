@@ -326,20 +326,20 @@ def getgradeinfo(request):
         result["success"] = False
         result["comment"] = "There is no section with that name."
         return HttpResponse(json.dumps(result))
-    section = Section.objects.filter(name=section_name)
+    section = Section.objects.get(name=section_name)
     if section.instructor != request.user:
         result["success"] = False
         result["comment"] = "The user is not the section's instructor."
         return HttpResponse(json.dumps(result))
     students = [student_section.student for student_section in StudentSection.objects.filter(section=section)]
     questions = [question for question in Question.objects.filter(section=section)]
-    students.sort(key=lambda student: student.name)
+    students.sort(key=lambda student: student.username)
     questions.sort(key=lambda question: question.label)
     # Format:
     # student name,question label,chosen answer,is answer correct?
     csv = ""
     for student in students:
-        for question in question:
+        for question in questions:
             try:
                 response = MCResponse.objects.get(student=student, question=question).response
                 answer = response.label
@@ -347,7 +347,7 @@ def getgradeinfo(request):
             except:
                 answer = ""
                 is_correct = False
-            csv += student.username + "," + question.label + "," + answer + "," + is_correct + "\n"
+            csv += student.username + "," + question.label + "," + answer + "," + str(is_correct) + "\n"
     result["success"] = True
     result["comment"] = "Successfully generated csv."
     result["csv"] = csv
