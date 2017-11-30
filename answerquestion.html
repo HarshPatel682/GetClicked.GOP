@@ -6,7 +6,42 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script>
-
+        $(document).ready(function () {
+            $('#questions').empty();
+            // get questions in section
+            var formData = {
+                "section" : Cookies.get('class')
+            };
+            $.ajax({
+                type : 'POST',
+                url : "http://18.216.65.48/app/getquestionsbysection/",
+                data : formData,
+                dataType: 'json'
+            })
+                .done(function (data) {
+                    // on failure will display error message
+                    if(data.success===false)
+                        alert("Error: "+data.comment);
+                    else{
+                        var qids = data.questions;
+                        console.log(qids);
+                        for(var i = 0; i < gids.length; i++){
+                            var id = {
+                                "questionid": qids[i][0]
+                            };
+                            $.ajax({
+                                type : 'POST',
+                                url : "http://18.216.65.48/app/getquestionbydetail/",
+                                data : formData,
+                                dataType: 'json'
+                            }).done(function (data2) {
+                                var answers = data2.answers;
+                                console.log(answers);
+                            });
+                        }
+                    }
+                });
+        });
     </script>
 </head>
 <body>
