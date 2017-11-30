@@ -39,7 +39,7 @@
                                 console.log(data2.questionid+' '+answers);
 
                                 // displaying the question on the page
-                                var qform ="<form onsubmit=\"submitans("+data2.questionid+", $('input[name="+data2.questionid+"]:checked').val());\">";
+                                var qform =$("<form onsubmit=\"submitans("+data2.questionid+", $('input[name="+data2.questionid+"]:checked').val());\">");
                                 for(var j = 0; j < answers.length; j++){
                                     qform.append("<input type=\"radio\" name=\""+data2.questionid+"\" value=\""+answers[j]+"\">"+answers[j]);
                                 }
