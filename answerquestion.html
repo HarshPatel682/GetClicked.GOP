@@ -40,10 +40,11 @@
 
                                 // displaying the question on the page
                                 var qform =$("<form onsubmit=\"submitans("+data2.questionid+", $('input[name="+data2.questionid+"]:checked').val());\">");
+                                qform.append(data2.label+"<br>");
                                 for(var j = 0; j < answers.length; j++){
                                     qform.append("<input type=\"radio\" name=\""+data2.questionid+"\" value=\""+answers[j]+"\">"+answers[j]);
                                 }
-                                qform.append("<input type=\"submit\" value=\"Submit\">\n" +
+                                qform.append("<br><input type=\"submit\" value=\"Submit\">\n" +
                                     "</form>");
 
                                 $('#questions').append(qform);
@@ -72,7 +73,7 @@
     </script>
 </head>
 <body>
-    <ul id="questions">
-    </ul>
+    <div id="questions">
+    </div>
 </body>
 </html>
