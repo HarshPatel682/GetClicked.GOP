@@ -39,9 +39,9 @@
                                 console.log(qids[i][0]+' '+answers);
 
                                 // displaying the question on the page
-                                var qform ="<form onsubmit=\"submitans("+qid[i][0]+", $('input[name="+qid[i][0]+"]:checked').val());\">"
+                                var qform ="<form onsubmit=\"submitans("+qids[i][0]+", $('input[name="+qids[i][0]+"]:checked').val());\">"
                                 for(var j = 0; j < answers.length; j++){
-                                    qform.append("<input type=\"radio\" name=\""+qid[i][0]+"\" value=\""+answers[j]+"\">"+answers[j]);
+                                    qform.append("<input type=\"radio\" name=\""+qids[i][0]+"\" value=\""+answers[j]+"\">"+answers[j]);
                                 }
                                 qform.append("<input type=\"submit\" value=\"Submit\">\n" +
                                     "</form>");
