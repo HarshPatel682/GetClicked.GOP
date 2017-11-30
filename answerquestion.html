@@ -26,9 +26,9 @@
                         var qids = data.questions;
                         console.log(qids);
                         for(var i = 0; i < qids.length; i++){
-                            console.log(qids[i][0].value);
+                            console.log(qids[i][0]);
                             var id = {
-                                "questionid": qids[i][0].val()
+                                "questionid": qids[i][0]
                             };
                             $.ajax({
                                 type : 'POST',
