@@ -36,12 +36,12 @@
                                 dataType: 'json'
                             }).done(function (data2) {
                                 var answers = data2.answers;
-                                console.log(qids[i][0]+' '+answers);
+                                console.log(data2.questionid+' '+answers);
 
                                 // displaying the question on the page
-                                var qform ="<form onsubmit=\"submitans("+qids[i][0]+", $('input[name="+qids[i][0]+"]:checked').val());\">"
+                                var qform ="<form onsubmit=\"submitans("+data2.questionid+", $('input[name="+data2.questionid+"]:checked').val());\">";
                                 for(var j = 0; j < answers.length; j++){
-                                    qform.append("<input type=\"radio\" name=\""+qids[i][0]+"\" value=\""+answers[j]+"\">"+answers[j]);
+                                    qform.append("<input type=\"radio\" name=\""+data2.questionid+"\" value=\""+answers[j]+"\">"+answers[j]);
                                 }
                                 qform.append("<input type=\"submit\" value=\"Submit\">\n" +
                                     "</form>");
