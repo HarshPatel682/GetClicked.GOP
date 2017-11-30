@@ -27,9 +27,7 @@
                     url : "http://18.216.65.48/app/createquestion",
                     data : formData,
                     dataType: 'json'
-                })
-
-                    .done(function (data) {
+                }).done(function (data) {
                         //on failure will display error message
                         if(data.success===false)
                             alert("Error: "+data.comment);
