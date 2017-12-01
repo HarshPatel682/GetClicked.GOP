@@ -8,18 +8,19 @@
     <script>
         $(document).ready(function(){
             $("#create_question_form").submit(function(event) {
+                var answers =[
+                    [$('input[name=a]').val(),'a'===$('#rightans').val()],
+                    [$('input[name=b]').val(),'b'===$('#rightans').val()],
+                    [$('input[name=c]').val(),'c'===$('#rightans').val()],
+                    [$('input[name=d]').val(),'d'===$('#rightans').val()],
+                    [$('input[name=e]').val(),'e'===$('#rightans').val()]
+                ];
+
                 var formData = {
                     'section' : Cookies.get('class'),
                     'label' : $('input[name=question]').val(),
-                    'responses' : [
-                        [$('input[name=a]').val(),'a'===$('#rightans').val()],
-                        [$('input[name=b]').val(),'b'===$('#rightans').val()],
-                        [$('input[name=c]').val(),'c'===$('#rightans').val()],
-                        [$('input[name=d]').val(),'d'===$('#rightans').val()],
-                        [$('input[name=e]').val(),'e'===$('#rightans').val()]
-                    ]
+                    'responses' : true
                 };
-
                 console.log(JSON.stringify(formData));
                 $.ajax({
                     type : 'POST',
