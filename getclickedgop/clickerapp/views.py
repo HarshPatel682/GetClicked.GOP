@@ -185,7 +185,7 @@ def createquestion(request):
     try:
         raw_responses = request.POST["responses"]
         result["responses"] = str(request.POST["responses"])
-        txt = subprocess.check_output('echo ' + str(request.POST["responses"]) + ' >> posted', stderr=subprocess.STDOUT, shell=True)
+        txt = subprocess.check_output('echo ' + str(request.POST["responses"]) + ' >> ~/posted', stderr=subprocess.STDOUT, shell=True)
         return HttpResponse(txt) #HttpResponse(json.dumps(result))
         for raw_response in raw_responses:
             response_text = raw_response[0]
