@@ -35,14 +35,13 @@
                                 dataType: 'json'
                             }).done(function (data2) {
                                 var answers = data2.answers;
-                                //console.log(data2.questionid+' '+answers);
                                 // displaying the question on the page
                                 var qform =$("<form onsubmit=\"return submitans("+data2.questionid+", $('input[name="+data2.questionid+"]:checked').val());\">");
                                 qform.append(data2.label);
                                 for(var j = 0; j < answers.length; j++){
                                     qform.append("<br><input type=\"radio\" name=\""+data2.questionid+"\" value=\""+answers[j]+"\">"+answers[j]);
                                 }
-                                qform.append("<br><input type=\"submit\" value=\"Submit\"></form><br><br>");
+                                qform.append("<br><input type=\"submit\" value=\"Submit\" onclick=\"this.value='Resubmit'\"></form><br><br>");
 
                                 $('#questions').append(qform);
                             });
@@ -64,6 +63,9 @@
             }).done(function (data3) {
                 if(data3.success===false)
                     alert("Error: "+data3.comment);
+                else {
+
+                }
             });
             return false;
         }

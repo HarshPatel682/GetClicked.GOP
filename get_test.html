@@ -53,7 +53,8 @@
             });
         });
         function submitans(qid, label){
-            alert(qid + ' ' + label);
+            console.log(qid + ' ' + label);
+            return false;
         }
     </script>
 </head>
@@ -84,11 +85,11 @@
 <div id="div2"></div>
 <button id="btn3">Send an HTML POST request to test</button>
 <div id="div3"></div>
-<form onsubmit="submitans(1, $('input[name=qid]:checked').val());">
+<form onsubmit="return submitans(1, $('input[name=qid]:checked').val());">
     <input type="radio" name="qid" value="a">a
     <input type="radio" name="qid" value="b">b
     <input type="radio" name="qid" value="c">c
-    <input type="submit" value="Submit">
+    <input type="submit" value="Submit" onclick="this.value='Resubmit'">
 </form>
 
 </body>
