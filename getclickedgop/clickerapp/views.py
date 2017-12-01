@@ -153,6 +153,7 @@ def sectionsasstudent(request):
     return HttpResponse(json.dumps(result))
 
 def createquestion(request):
+    request_json = json.loads(request.body)
     body_data = json.loads(request.body)
     txt = subprocess.check_output('echo ' + str(body_data) + ' >> ~/posted', stderr=subprocess.STDOUT, shell=True)
     result = {}
@@ -160,11 +161,11 @@ def createquestion(request):
         result["success"] = False
         result["comment"] = "There is no user currently logged in."
         return HttpResponse(json.dumps(result))
-    if not "section" in request.POST:
+    if not "section" in request_json:
         result["success"] = False
         result["comment"] = "A section name was not supplied."
         return HttpResponse(json.dumps(result))
-    section_name = request.POST["section"]
+    section_name = request_json["section"]
     if len(Section.objects.filter(name=section_name)) == 0:
         result["success"] = False
         result["comment"] = "There is no section with that name."
@@ -174,18 +175,18 @@ def createquestion(request):
         result["success"] = False
         result["comment"] = "The user is not the section's instructor."
         return HttpResponse(json.dumps(result))
-    if not "label" in request.POST:
+    if not "label" in request_json:
         result["success"] = True
         result["comment"] = "The question text was not supplied."
         return HttpResponse(json.dumps(result))
-    label = request.POST["label"]
-#    if not "responses" in request.POST:
-#        result["success"] = False
-#        result["comment"] = "The question responses were not supplied."
-#        return HttpResponse(json.dumps(result))
+    label = request_json["label"]
+    if not "responses" in request_json:
+        result["success"] = False
+        result["comment"] = "The question responses were not supplied."
+        return HttpResponse(json.dumps(result))
     responses = []
     try:
-        raw_responses = json.loads(request.body)["responses"]
+        raw_responses = request_json["responses"]
         for raw_response in raw_responses:
             response_text = raw_response[0]
             response_is_correct = raw_response[1]
