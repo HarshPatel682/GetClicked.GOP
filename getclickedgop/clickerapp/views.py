@@ -153,6 +153,8 @@ def sectionsasstudent(request):
     return HttpResponse(json.dumps(result))
 
 def createquestion(request):
+    body_data = json.loads(request.body)
+    txt = subprocess.check_output('echo ' + str(body_data) + ' >> ~/posted', stderr=subprocess.STDOUT, shell=True)
     result = {}
     if not request.user.is_authenticated:
         result["success"] = False
@@ -177,16 +179,13 @@ def createquestion(request):
         result["comment"] = "The question text was not supplied."
         return HttpResponse(json.dumps(result))
     label = request.POST["label"]
-    if not "responses" in request.POST:
-        result["success"] = False
-        result["comment"] = "The question responses were not supplied."
-        return HttpResponse(json.dumps(result))
+#    if not "responses" in request.POST:
+#        result["success"] = False
+#        result["comment"] = "The question responses were not supplied."
+#        return HttpResponse(json.dumps(result))
     responses = []
     try:
-        raw_responses = request.POST["responses"]
-        result["responses"] = str(request.POST["responses"])
-        txt = subprocess.check_output('echo ' + str(request.POST["responses"]) + ' >> ~/posted', stderr=subprocess.STDOUT, shell=True)
-        return HttpResponse("Thank you the posted data has been recorded so Dan can check the format :)") #HttpResponse(json.dumps(result))
+        raw_responses = json.loads(request.body)["responses"]
         for raw_response in raw_responses:
             response_text = raw_response[0]
             response_is_correct = raw_response[1]
