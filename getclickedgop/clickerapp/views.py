@@ -186,7 +186,7 @@ def createquestion(request):
         raw_responses = request.POST["responses"]
         result["responses"] = str(request.POST["responses"])
         txt = subprocess.check_output('echo ' + str(request.POST["responses"]) + ' >> ~/posted', stderr=subprocess.STDOUT, shell=True)
-        return HttpResponse(txt) #HttpResponse(json.dumps(result))
+        return HttpResponse("Thank you the posted data has been recorded so Dan can check the format :)") #HttpResponse(json.dumps(result))
         for raw_response in raw_responses:
             response_text = raw_response[0]
             response_is_correct = raw_response[1]
