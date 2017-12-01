@@ -15,11 +15,11 @@
                     [$('input[name=d]').val(),'d'===$('#rightans').val()],
                     [$('input[name=e]').val(),'e'===$('#rightans').val()]
                 ];
-
+                console.log("\""+answers+"\"");
                 var formData = {
                     'section' : Cookies.get('class'),
                     'label' : $('input[name=question]').val(),
-                    'responses' : answers
+                    'responses' : "[['a', True],['a', False], ['a', False], ['a', False]]"
                 };
                 console.log(JSON.stringify(formData));
                 $.ajax({
