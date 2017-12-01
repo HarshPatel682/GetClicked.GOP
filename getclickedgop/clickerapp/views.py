@@ -193,7 +193,7 @@ def createquestion(request):
             responses.append([response_text, response_is_correct])
     except Exception, e:
         result["success"] = False
-        result["comment"] = "The response set was not able to be parsed."
+        result["comment"] = str(e)#"The response set was not able to be parsed."
         return HttpResponse(json.dumps(result))
     
     question = Question(section=section, label=label)
