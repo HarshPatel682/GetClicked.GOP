@@ -19,13 +19,13 @@
                 var formData = {
                     'section' : Cookies.get('class'),
                     'label' : $('input[name=question]').val(),
-                    'responses' : ["asdff"]
+                    'responses' : answers
                 };
                 console.log(JSON.stringify(formData));
                 $.ajax({
                     type : 'POST',
                     url : "http://18.216.65.48/app/createquestion",
-                    data : formData,
+                    data : JSON.stringify(formData),
                     dataType: 'json'
                 }).done(function (data) {
                         //on failure will display error message
