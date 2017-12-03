@@ -310,3 +310,45 @@ def getquestiondetail(request):
     result["chosenanswer"] = answer
     result["label"] = question.label
     return HttpResponse(json.dumps(result))
+
+def getgradeinfo(request):
+    result = {"csv" : ""}
+    if not request.user.is_authenticated:
+        result["success"] = False
+        result["comment"] =  "There is no user currently logged in."
+        return HttpResponse(json.dumps(result))
+    if not "section" in request.POST:
+        result["success"] = False
+        result["comment"] = "A section name was not supplied."
+        return HttpResponse(json.dumps(result))
+    section_name = request.POST["section"]
+    if len(Section.objects.filter(name=section_name)) == 0:
+        result["success"] = False
+        result["comment"] = "There is no section with that name."
+        return HttpResponse(json.dumps(result))
+    section = Section.objects.get(name=section_name)
+    if section.instructor != request.user:
+        result["success"] = False
+        result["comment"] = "The user is not the section's instructor."
+        return HttpResponse(json.dumps(result))
+    students = [student_section.student for student_section in StudentSection.objects.filter(section=section)]
+    questions = [question for question in Question.objects.filter(section=section)]
+    students.sort(key=lambda student: student.username)
+    questions.sort(key=lambda question: question.label)
+    # Format:
+    # student name,question label,chosen answer,is answer correct?
+    csv = ""
+    for student in students:
+        for question in questions:
+            try:
+                response = MCResponse.objects.get(student=student, question=question).response
+                answer = response.label
+                is_correct = response.is_correct
+            except:
+                answer = ""
+                is_correct = False
+            csv += student.username + "," + question.label + "," + answer + "," + str(is_correct) + "\n"
+    result["success"] = True
+    result["comment"] = "Successfully generated csv."
+    result["csv"] = csv
+    return HttpResponse(json.dumps(result))

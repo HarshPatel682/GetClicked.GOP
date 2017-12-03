@@ -15,5 +15,6 @@ urlpatterns = [
     url(r'^answerquestion', views.answerquestion, name='answerquestion'),
     url(r'^getquestionsbysection', views.getquestionsbysection, name='answerquestion'),
     url(r'^getquestiondetail', views.getquestiondetail, name='getquestiondetail'),
+    url(r'^getgradeinfo', views.getgradeinfo, name='getgradeinfo'),
     url(r'^deploy', views.deploy, name='deploy')
 ]
