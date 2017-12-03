@@ -27,6 +27,17 @@ body {
 .navbar .btn {
     padding: 14px 16px;
     float: right;
+    display: inline-block;
+    color: #ffffff;
+    background: #673ab7;
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .btn:hover {
+    /*color: blue;*/
+    background: pink;
 }
 
 .container {
