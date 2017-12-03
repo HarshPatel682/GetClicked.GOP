@@ -19,6 +19,8 @@
                     tr = $("<li><a href=answerquestion.html>" + data.sections[i] + "</a></li>");
                     $("#classes_in").append(tr);
                 }
+                //test
+                //$("#classes_in").append("<li><a href=answerquestion.html>asdfsadf</a></li>");
             });
             $.getJSON("http://18.216.65.48/app/sectionsasinstructor/", function(data, status){
                 var tr;
@@ -26,20 +28,24 @@
                     tr = $("<li><a href=createquestion.html>" + data.sections[i] + "</a></li>");
                     $("#classes_instr_of").append(tr);
                 }
+                //test
+                //$("#classes_instr_of").append("<li><a href=answerquestion.html>tescreate</a></li>");
             });
 
             $('#logoutbtn').click(function () {
                 $.get("http://18.216.65.48/app/logoutuser", function(data, status){
-                    console.log("logout"+status);
+                    alert("logout"+status);
                     window.location.replace("http://18.216.65.48/")
                 });
-            });
+            })
 
             $("#classes_in").click(function (event) {
                 Cookies.set('class',event.target.innerHTML);
+                //alert(Cookies.get('class'))
             });
             $("#classes_instr_of").click(function (event) {
                 Cookies.set('class',event.target.innerHTML);
+                //alert(Cookies.get('class'))
             });
         });
     </script>
@@ -47,8 +53,9 @@
 <body>
 
 <div class="navbar">
-    <button id="logoutbtn" class="btn">logout</button>
     <a href="home.html" id="UsersName">Insert Username Here</a>
+    <!--logout btn temp-->
+    <btn id="logoutbtn" class="btn">logout</btn>
 </div>
 
 <section>
@@ -57,13 +64,29 @@
 
             <div class="leftDiv">
                 <a href="join.html" class="join">Join a class</a>
-                <ol id="classes_in">
-                </ol>
+
+                <div class="section_of_classes">
+                    <h3>Classes you are in</h3>
+                    <div style="overflow-y: scroll; height:400px;">
+                        <ol id="classes_in" class="classes">
+                        </ol>
+                    </div>
+
+                </div>
+
             </div>
             <div class="rightDiv">
                 <a href="create.html" class="create">Create a class</a>
-                <ol id="classes_instr_of">
-                </ol>
+
+                <div class="section_of_classes">
+                    <h3>Instructor for these classes</h3>
+                    <div style="overflow-y: scroll; height:400px;">
+                        <ol id="classes_instr_of" class="classes">
+                        </ol>
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
