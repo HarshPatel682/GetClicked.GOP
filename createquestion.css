@@ -24,19 +24,36 @@ body {
     background: rgba(103, 58, 183, 0.7);
 }
 
-/*.container .form {*/
-    /*position: absolute;*/
-    /*top: 20%;*/
-    /*Left: 30%;*/
-    /*text-align: center;*/
-    /*display: inline-block;*/
-    /*padding: 10px 20px;*/
-    /*color: #ffffff;*/
-    /*background: #673ab7;*/
-    /*border-radius: 25px;*/
-    /*text-decoration: none;*/
-    /*box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);*/
-/*}*/
+.container .form {
+    position: absolute;
+    top: 20%;
+    Left: 30%;
+    text-align: center;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    background: #673ab7;
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container .form .down{
+    position: absolute;
+    Left: 15%;
+    text-align: center;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #ffffff;
+    background: #673ab7;
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container .form .down:hover {
+    background: pink;
+}
 
 /*.container .form .sub {*/
     /*display: inline-block;*/
