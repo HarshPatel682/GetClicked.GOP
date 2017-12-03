@@ -38,12 +38,12 @@
                             }).done(function (data2) {
                                 var answers = data2.answers;
                                 // displaying the question on the page
-                                var qform =$("<form onsubmit=\"return submitans("+data2.questionid+", $('input[name="+data2.questionid+"]:checked').val());\">");
+                                var qform =$("<form class='form' onsubmit=\"return submitans("+data2.questionid+", $('input[name="+data2.questionid+"]:checked').val());\">");
                                 qform.append(data2.label);
                                 for(var j = 0; j < answers.length; j++){
                                     qform.append("<br><input type=\"radio\" name=\""+data2.questionid+"\" value=\""+answers[j]+"\">"+answers[j]);
                                 }
-                                qform.append("<br><input type=\"submit\" value=\"Submit\" onclick=\"this.value='Resubmit'\"></form><br><br>");
+                                qform.append("<br><input class='sub' type=\"submit\" value=\"Submit\" onclick=\"this.value='Resubmit'\"></form><br><br>");
 
                                 $('#questions').append(qform);
                             });
