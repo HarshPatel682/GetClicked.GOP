@@ -3,51 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>About the Authors</title>
-    <link rel="stylesheet" href="about.css">
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--Cookie api-->
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <style>
+        .jumbotron{
+            background: url(images/518169-backgrounds.jpg);
+            color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
 
-<div class="header">
-    <h2>About the Authors</h2>
+<div class="jumbotron text-center">
+    <h1>About the Authors</h1>
 </div>
 
-<div class="row">
-    <div class="column">
-        <div class="card">
-            <img src="images/andy.jpg" alt="Andy Gao" style="width:100%">
-            <div class="container">
-                <h2>Andy Gao</h2>
-                <p class="title">Full Stack Developer</p>
-                <p><a href="mailto:gao353@purdue.edu?Subject=" target="_top">gao353@purdue.edu</a></p>
-                <p><button class="button" onclick="location.href='https://github.com/andy1445';">Contact</button></p>
-            </div>
-        </div>
-    </div>
+<div class="container">
+    <div class="row">
 
-    <div class="column">
-        <div class="card">
-            <img src="images/daniel_new.jpg" alt="Daniel Ostrowski" style="width:100%">
-            <div class="container">
-                <h2>Daniel Ostrowski</h2>
-                <p class="title">Full Stack Developer</p>
-                <p><a href="mailto:ostrowsd@purdue.edu?Subject=" target="_top">ostrowsd@purdue.edu</a></p>
-                <p><button class="button" onclick="location.href='https://github.com/daniel-ostrowski';">Contact</button></p>
-            </div>
+        <div class="col-sm-4">
+            <img src="images/andy.jpg" class="img-responsive img-circle" alt="Andy Gao">
+            <h2>Andy Gao</h2>
+            <p class="title">Full Stack Developer</p>
+            <p><a href="mailto:gao353@purdue.edu?Subject=" target="_top">gao353@purdue.edu</a></p>
+            <p><a href="https://github.com/andy1445" type="button" class="btn btn-info">Github</a></p>
         </div>
-    </div>
-
-    <div class="column">
-        <div class="card">
-            <img src="images/Harsh_new.jpg" alt="Harsh Patel" style="width:100%">
-            <div class="container">
-                <h2>Harsh Patel</h2>
-                <p class="title">Full Stack Developer</p>
-                <p><a href="mailto:patel682@purdue.edu?Subject=" target="_top">patel682@purdue.edu</a></p>
-                <p><button class="button" onclick="location.href='https://github.com/HarshPatel682';">Contact</button></p>
-            </div>
+        <div class="col-sm-4">
+            <img src="images/daniel_new.jpg" class="img-responsive img-circle" alt="Daniel Ostrowski">
+            <h2>Daniel Ostrowski</h2>
+            <p class="title">Full Stack Developer</p>
+            <p><a href="mailto:ostrowsd@purdue.edu?Subject=" target="_top">ostrowsd@purdue.edu</a></p>
+            <p><a href="https://github.com/daniel-ostrowski" type="button" class="btn btn-info">Github</a></p>
         </div>
-    </div>
+        <div class="col-sm-4">
+            <img src="images/Harsh_new.jpg" class="img-responsive img-circle" alt="Harsh Patel">
+            <h2>Harsh Patel</h2>
+            <p class="title">Full Stack Developer</p>
+            <p><a href="mailto:patel682@purdue.edu?Subject=" target="_top">patel682@purdue.edu</a></p>
+            <p><a href="https://github.com/HarshPatel682" type="button" class="btn btn-info">Github</a></p>
+        </div>
 
+    </div>
 </div>
 
 </body>
