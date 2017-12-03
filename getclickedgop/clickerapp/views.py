@@ -320,11 +320,11 @@ def getgradeinfo(request):
         result["success"] = False
         result["comment"] =  "There is no user currently logged in."
         return HttpResponse(json.dumps(result))
-    if not "section" in request.POST:
+    section_name = request.COOKIES.get('class')
+    if section_name == None or section_name == "":
         result["success"] = False
         result["comment"] = "A section name was not supplied."
         return HttpResponse(json.dumps(result))
-    section_name = request.POST["section"]
     if len(Section.objects.filter(name=section_name)) == 0:
         result["success"] = False
         result["comment"] = "There is no section with that name."
