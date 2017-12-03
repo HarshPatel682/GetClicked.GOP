@@ -351,7 +351,11 @@ def getgradeinfo(request):
                 answer = ""
                 is_correct = False
             csv += student.username + "," + question.label + "," + answer + "," + str(is_correct) + "\n"
-    result["success"] = True
-    result["comment"] = "Successfully generated csv."
-    result["csv"] = csv
-    return HttpResponse(json.dumps(result))
+    response = HttpResponse(csv)
+    response['Content-Type'] = 'text/csv'
+    response['Content-Disposition'] = 'attachment; filename="grades.csv"'
+    return response
+    #result["success"] = True
+    #result["comment"] = "Successfully generated csv."
+    #result["csv"] = csv
+    #return HttpResponse(json.dumps(result))
