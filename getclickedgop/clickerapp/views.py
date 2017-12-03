@@ -341,7 +341,7 @@ def getgradeinfo(request):
     questions.sort(key=lambda question: question.label)
     # Format:
     # student name,question label,chosen answer,is answer correct?
-    csv = "username~question text~user answer~is correct"
+    csv = "username~question text~user answer~is correct\n"
     for student in students:
         for question in questions:
             try:
