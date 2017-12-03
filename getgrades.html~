@@ -11,7 +11,20 @@
                 var formData = {
                     'section' : Cookies.get('class')
                 };
-	        $.post("http://18.216.65.48/app/getgradeinfo", formData, function (data) {});
+                $.ajax({
+                    type : 'POST',
+                    url : "http://18.216.65.48/app/getgradeinfo",
+                    data : formData,
+                    dataType: 'json'
+                }).done(function (data) {
+                        //on failure will display error message
+                        if(data.success===false)
+                            alert("Error: "+data.comment);
+                        else {
+                            alert("question created");
+                        }
+                    })
+                //event.preventDefault();
             });
         });
     </script>
