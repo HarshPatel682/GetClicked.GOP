@@ -9,6 +9,8 @@
 
     <script>
         $(document).ready(function(){
+            $.get("http://18.216.65.48/app/logoutuser", function(data, status){
+            });
             $("#loginform").submit(function(event) {
                 var formData = {
                     "username" : $('input[name=username]').val(),
