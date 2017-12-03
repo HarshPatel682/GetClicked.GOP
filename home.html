@@ -4,15 +4,58 @@
     <meta charset="UTF-8">
     <title>Home Page</title>
     <link rel="stylesheet" href="home.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#UsersName').html(Cookies.get('username'));
+
+            $("#classes_in").empty();
+            $("#classes_instr_of").empty();
+
+            $.getJSON("http://18.216.65.48/app/sectionsasstudent/", function(data, status){
+                var tr;
+                for (var i = 0; i<data.sections.length; i++) {
+                    tr = $("<li><a href=answerquestion.html>" + data.sections[i] + "</a></li>");
+                    $("#classes_in").append(tr);
+                }
+                //test
+                //$("#classes_in").append("<li><a href=answerquestion.html>asdfsadf</a></li>");
+            });
+            $.getJSON("http://18.216.65.48/app/sectionsasinstructor/", function(data, status){
+                var tr;
+                for (var i = 0; i<data.sections.length; i++) {
+                    tr = $("<li><a href=createquestion.html>" + data.sections[i] + "</a></li>");
+                    $("#classes_instr_of").append(tr);
+                }
+                //test
+                //$("#classes_instr_of").append("<li><a href=answerquestion.html>tescreate</a></li>");
+            });
+
+            $('#logoutbtn').click(function () {
+                $.get("http://18.216.65.48/app/logoutuser", function(data, status){
+                    alert("logout"+status);
+                    window.location.replace("http://18.216.65.48/")
+                });
+            })
+
+            $("#classes_in").click(function (event) {
+                Cookies.set('class',event.target.innerHTML);
+                //alert(Cookies.get('class'))
+            });
+            $("#classes_instr_of").click(function (event) {
+                Cookies.set('class',event.target.innerHTML);
+                //alert(Cookies.get('class'))
+            });
+        });
+    </script>
 </head>
 <body>
 
 <div class="navbar">
-    <a href="home.html" name="UsersName">Insert Username Here</a>
+    <a href="home.html" id="UsersName">Insert Username Here</a>
     <!--logout btn temp-->
-    <btn id="logoutbtn">
-        <a href="http://18.216.65.48/app/logoutuser/">logout</a>
-    </btn>
+    <btn id="logoutbtn" class="btn">logout</btn>
 </div>
 
 <section>
@@ -21,11 +64,13 @@
 
             <div class="leftDiv">
                 <a href="join.html" class="join">Join a class</a>
-
+                <ol id="classes_in">
+                </ol>
             </div>
             <div class="rightDiv">
                 <a href="create.html" class="create">Create a class</a>
-
+                <ol id="classes_instr_of">
+                </ol>
             </div>
 
         </div>

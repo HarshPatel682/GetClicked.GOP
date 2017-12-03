@@ -25,11 +25,10 @@
                 $.ajax({
                     type : 'POST',
                     url : "http://18.216.65.48/app/createquestion",
-                    data : formData,
+                    data : JSON.stringify(formData),
+                    contentType: 'application/json; charset=utf-8',
                     dataType: 'json'
-                })
-
-                    .done(function (data) {
+                }).done(function (data) {
                         //on failure will display error message
                         if(data.success===false)
                             alert("Error: "+data.comment);
