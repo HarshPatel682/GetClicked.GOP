@@ -15,7 +15,13 @@
                     [$('input[name=d]').val(),'d'===$('#rightans').val()],
                     [$('input[name=e]').val(),'e'===$('#rightans').val()]
                 ];
-
+                var index = 0;
+                while (index < answers.length){
+                    if(answers[index][0]==="")
+                        answers.splice(index,1);
+                    else
+                        index++;
+                }
                 var formData = {
                     'section' : Cookies.get('class'),
                     'label' : $('input[name=question]').val(),
