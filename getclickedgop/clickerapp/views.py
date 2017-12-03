@@ -7,6 +7,7 @@ import json
 import ast
 from django.contrib.auth import authenticate, login, logout
 from models import *
+import urllib
 
 def index(request):
     return HttpResponse("Welcome to GetClicked.GOP!")
@@ -320,7 +321,7 @@ def getgradeinfo(request):
         result["success"] = False
         result["comment"] =  "There is no user currently logged in."
         return HttpResponse(json.dumps(result))
-    section_name = request.COOKIES.get('class')
+    section_name = urllib.unquote(request.COOKIES.get('class'))
     if section_name == None or section_name == "":
         result["success"] = False
         result["comment"] = "A section name was not supplied."
