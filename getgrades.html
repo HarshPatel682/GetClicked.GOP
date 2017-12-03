@@ -11,7 +11,9 @@
                 var formData = {
                     'section' : Cookies.get('class')
                 };
-	        $.post("http://18.216.65.48/app/getgradeinfo", formData, function (data) {});
+	        $.post("http://18.216.65.48/app/getgradeinfo", formData, function (data) {
+	       alert(data);
+	});
             });
         });
     </script>
