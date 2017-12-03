@@ -1,3 +1,4 @@
 {
-  "sections": ["a","b","c"]
+  "age" : 4,
+  "sections": [["adsfasdf",true],["b",false]]
 }
