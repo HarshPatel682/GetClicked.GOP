@@ -341,7 +341,7 @@ def getgradeinfo(request):
     questions.sort(key=lambda question: question.label)
     # Format:
     # student name,question label,chosen answer,is answer correct?
-    csv = ""
+    csv = "username~question text~user answer~is correct"
     for student in students:
         for question in questions:
             try:
@@ -351,7 +351,7 @@ def getgradeinfo(request):
             except:
                 answer = ""
                 is_correct = False
-            csv += student.username + "," + question.label + "," + answer + "," + str(is_correct) + "\n"
+            csv += student.username + "~" + question.label + "~" + answer + "~" + str(is_correct) + "\n"
     response = HttpResponse(csv)
     response['Content-Type'] = 'text/csv'
     response['Content-Disposition'] = 'attachment; filename=grades.csv'
