@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
+    <link rel="stylesheet" href="basic_input.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
@@ -33,10 +34,14 @@
     </script>
 </head>
 <body>
-    <form id="signupform">
-        Username: <input type="text" name="username"><br>
-        Password: <input type="password" name="password"><br>
-        <input type="submit" value="Sign Up!">
-    </form>
+
+    <div class="container">
+        <form id="signupform" class="form">
+            Username: <input type="text" name="username"><br>
+            Password: <input type="password" name="password"><br>
+            <input type="submit" value="Sign Up!" class="sub">
+        </form>
+    </div>
+
 </body>
 </html>

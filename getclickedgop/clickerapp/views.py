@@ -320,11 +320,11 @@ def getgradeinfo(request):
         result["success"] = False
         result["comment"] =  "There is no user currently logged in."
         return HttpResponse(json.dumps(result))
-    if not "section" in request.POST:
+    section_name = request.COOKIES.get('class')
+    if section_name == None or section_name == "":
         result["success"] = False
         result["comment"] = "A section name was not supplied."
         return HttpResponse(json.dumps(result))
-    section_name = request.POST["section"]
     if len(Section.objects.filter(name=section_name)) == 0:
         result["success"] = False
         result["comment"] = "There is no section with that name."
@@ -353,7 +353,7 @@ def getgradeinfo(request):
             csv += student.username + "," + question.label + "," + answer + "," + str(is_correct) + "\n"
     response = HttpResponse(csv)
     response['Content-Type'] = 'text/csv'
-    response['Content-Disposition'] = 'attachment; filename="grades.csv"'
+    response['Content-Disposition'] = 'attachment; filename=grades.csv'
     return response
     #result["success"] = True
     #result["comment"] = "Successfully generated csv."

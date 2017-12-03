@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Create a class</title>
+    <link rel="stylesheet" href="basic_input.css">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script>
         $(document).ready(function(){
@@ -34,10 +36,16 @@
 </head>
 <body>
 
-<form id="createclassform">
-    Class Name: <input type="text" name="class" placeholder="Class Name"><br>
-    <input type="submit" value="Create Class">
-</form>
+<div class="container">
+
+    <form id="createclassform" class="form">
+        <h3>Type a class you want to create</h3>
+        Class Name: <input type="text" name="class" placeholder="Class Name"><br>
+        <input type="submit" value="Create Class" class="sub">
+    </form>
+
+</div>
+
 
 </body>
 </html>
