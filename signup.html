@@ -5,6 +5,7 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="basic_input.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script>
         $(document).ready(function(){
             $("#signupform").submit(function(event) {
@@ -12,7 +13,8 @@
                     "username" : $('input[name=username]').val(),
                     "password" : $('input[name=password]').val()
                 };
-                //TODO fix urls
+                Cookies.set('username', $('input[name=username]').val());
+
                 $.ajax({
                     type : 'POST',
                     url : "http://18.216.65.48/app/createuser/",
