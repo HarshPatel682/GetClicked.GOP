@@ -12,9 +12,11 @@
                     'section' : Cookies.get('class')
                 };
 	        $.post("http://18.216.65.48/app/getgradeinfo", formData, function (data) {
-	       alert(data);
+	       //alert(data);
 	});
 	       event.preventDefault();
+	       $("#getgradesform").remove();
+	       
             });
         });
     </script>
