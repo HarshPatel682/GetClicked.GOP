@@ -34,8 +34,8 @@ body {
     top: 53%;
     Left: 50%;
     transform: translate(-50%, -50%);
-    width: 90%;
-    height: 90%;
+    width: 80%;
+    height: 73%;
     background: rgba(10, 10, 10, 0.9);
 }
 
@@ -83,4 +83,57 @@ body {
 .container .nav2 .rightDiv .create:hover {
     background: #ff0057;
     border: 2px solid #000000;
+}
+
+.container .nav2 .leftDiv h3 {
+    text-align: center;
+}
+
+.container .nav2 .leftDiv .section_of_classes {
+    /*display: inline-block;*/
+    /*overflow: auto;*/
+    /*max-height: 100vh;*/
+    text-align: left;
+    padding: 10px 20px;
+    color: #ffffff;
+    background: #673ab7;
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container .nav2 .leftDiv .section_of_classes a {
+    color: white;
+    font-size: x-large;
+}
+
+.container .nav2 .leftDiv .section_of_classes a:hover {
+    color: blue;
+}
+
+.container .nav2 .rightDiv h3 {
+    text-align: center;
+}
+
+.container .nav2 .rightDiv .section_of_classes {
+    /*display: inline-block;*/
+    /*overflow: auto;*/
+    /*max-height: 100vh;*/
+
+    text-align: left;
+    padding: 10px 20px;
+    color: #ffffff;
+    background: #673ab7;
+    border-radius: 25px;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container .nav2 .rightDiv .section_of_classes a {
+    color: white;
+    font-size: x-large;
+}
+
+.container .nav2 .rightDiv .section_of_classes a:hover {
+    color: blue;
 }

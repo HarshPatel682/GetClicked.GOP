@@ -10,8 +10,8 @@
         $(document).ready(function(){
             $('#UsersName').html(Cookies.get('username'));
 
-            $("#classes_in").empty();
-            $("#classes_instr_of").empty();
+//            $("#classes_in").empty();
+//            $("#classes_instr_of").empty();
 
             $.getJSON("http://18.216.65.48/app/sectionsasstudent/", function(data, status){
                 var tr;
@@ -64,13 +64,30 @@
 
             <div class="leftDiv">
                 <a href="join.html" class="join">Join a class</a>
-                <ol id="classes_in">
-                </ol>
+
+                <div class="section_of_classes">
+                    <h3>Classes you are in</h3>
+                    <div style="overflow-y: scroll; height:400px;">
+                        <ol id="classes_in" class="classes">
+                            <li><a href="images/andy.jpg">trying</a></li>
+                        </ol>
+                    </div>
+
+                </div>
+
             </div>
             <div class="rightDiv">
                 <a href="create.html" class="create">Create a class</a>
-                <ol id="classes_instr_of">
-                </ol>
+
+                <div class="section_of_classes">
+                    <h3>Instructor for these classes</h3>
+                    <div style="overflow-y: scroll; height:400px;">
+                        <ol id="classes_instr_of" class="classes">
+                        </ol>
+                    </div>
+
+                </div>
+
             </div>
 
         </div>
