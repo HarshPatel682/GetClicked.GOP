@@ -13,7 +13,7 @@ body {
     width: 100%;
 }
 
-.navbar a {
+.navbar .diffA {
 
     float: left;
     display: block;
@@ -35,10 +35,15 @@ body {
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 }
 
+.navbar .btn .diff {
+    color: white;
+}
+
 .navbar .btn:hover {
     /*color: blue;*/
     background: pink;
 }
+
 
 .container {
     position: absolute;
