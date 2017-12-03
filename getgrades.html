@@ -5,25 +5,8 @@
     <title>Get Grades for Section as CSV</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $("#getgradesform").submit(function(event) {
-                var formData = {
-                    'section' : Cookies.get('class')
-                };
-	        $.post("http://18.216.65.48/app/getgradeinfo", formData, function (data) {
-	       //alert(data);
-	});
-	       //event.preventDefault();
-	       $("#getgradesform").remove();
-	       
-            });
-        });
-    </script>
 </head>
 <body>
-    <form id="getgradesform">
-        <input type="submit" value="Get grades as CSV">
-    </form>
+  <a download="grades.csv" href="http://18.216.65.48/app/getgradeinfo">Download CSV</a>
 </body>
 </html>
