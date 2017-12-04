@@ -7,6 +7,7 @@ import json
 import ast
 from django.contrib.auth import authenticate, login, logout
 from models import *
+import urllib
 
 def index(request):
     return HttpResponse("Welcome to GetClicked.GOP!")
@@ -320,7 +321,7 @@ def getgradeinfo(request):
         result["success"] = False
         result["comment"] =  "There is no user currently logged in."
         return HttpResponse(json.dumps(result))
-    section_name = request.COOKIES.get('class')
+    section_name = urllib.unquote(request.COOKIES.get('class'))
     if section_name == None or section_name == "":
         result["success"] = False
         result["comment"] = "A section name was not supplied."
@@ -340,7 +341,7 @@ def getgradeinfo(request):
     questions.sort(key=lambda question: question.label)
     # Format:
     # student name,question label,chosen answer,is answer correct?
-    csv = ""
+    csv = "username~question text~user answer~is correct\n"
     for student in students:
         for question in questions:
             try:
@@ -350,7 +351,7 @@ def getgradeinfo(request):
             except:
                 answer = ""
                 is_correct = False
-            csv += student.username + "," + question.label + "," + answer + "," + str(is_correct) + "\n"
+            csv += student.username + "~" + question.label + "~" + answer + "~" + str(is_correct) + "\n"
     response = HttpResponse(csv)
     response['Content-Type'] = 'text/csv'
     response['Content-Disposition'] = 'attachment; filename=grades.csv'
