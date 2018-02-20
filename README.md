@@ -25,7 +25,8 @@ Integrate a kahoot-like program
 
 
 ORIGINAL DOC:
-/////////////////////////////////////////////////
+---------------------------------------------------------------------------
+
 Login/index page
 Intent: Allow user to login/ sign up as a professor or student
 Post: username=string&password=string&var=bool&login=bool
